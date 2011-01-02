@@ -6,6 +6,7 @@
 #  id         :integer         not null, primary key
 #  name       :string(255)
 #  email      :string(255)
+#  admin      :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -41,7 +42,8 @@ class User < ActiveRecord::Base
 	  user = User.find_by_id(id)
 	  return user if user && user.salt == cookie_salt
 	  return nil
-  end
+    end
+
 	
 	private
 		def encrypt_password
